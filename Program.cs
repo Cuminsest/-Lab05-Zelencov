@@ -38,5 +38,52 @@ string result = temperature switch
     _ => "Некорректная температура"
 };
 
-Console.WriteLine(result);*/
+Console.WriteLine(result);
 
+string role = "user";
+
+string result = role switch
+{
+    "admin" => "Полный доступ",
+    "teacher" => "Доступ преподавателя",
+    _ => "Ограниченный доступ"
+};
+
+Console.WriteLine(result);
+
+
+int age = 20;
+bool hasTicket = true;
+
+switch (age)
+{
+    case >= 18 when hasTicket:
+        Console.WriteLine("Вход разрешён");
+        break;
+    case >= 18:
+        Console.WriteLine("Нет билета");
+        break;
+    default:
+        Console.WriteLine("Возраст не подходит");
+        break;
+}*/
+
+
+int level = 2;
+
+switch (level)
+{
+    case 1:
+        Console.WriteLine("Начальный уровень");
+        break;
+    case 2:
+        Console.WriteLine("Средний уровень");
+        Console.WriteLine("Начальный уровень");
+        break;
+    case 3:
+        Console.WriteLine("Продвинутый уровень");
+        break;
+    default:
+        Console.WriteLine("Неизвестный уровень");
+        break;
+}
