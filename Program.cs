@@ -66,7 +66,7 @@ switch (age)
     default:
         Console.WriteLine("Возраст не подходит");
         break;
-}*/
+}
 
 
 int level = 2;
@@ -87,3 +87,100 @@ switch (level)
         Console.WriteLine("Неизвестный уровень");
         break;
 }
+
+
+
+
+Console.Write("Введите номер месяца (1-12): ");
+if (int.TryParse(Console.ReadLine(), out int month))
+{
+    string season = month switch
+    {
+        1 or 12 or 2 => "Зима",
+        3 or 4 or 5 => "Весна",
+        6 or 7 or 8 => "Лето",
+        9 or 10 or 11 => "Осень",
+        _ => "Неверный месяц"
+    };
+
+    Console.WriteLine(season);
+}
+else
+{
+    Console.WriteLine("Некорректный ввод.");
+}
+
+
+
+
+Console.Write("Введите номер дня недели (1-7): ");
+if (int.TryParse(Console.ReadLine(), out int day))
+{
+       string dayType = day switch
+       {
+        1 or 2 or 3 or 4 or 5 => "Будний",
+        6 or 7 => "Выходной",
+        _ => "Неверный день недели"
+    };
+
+    Console.WriteLine(dayType);
+}
+else
+{
+    Console.WriteLine("Некорректный ввод.");
+}
+
+Console.Write("Введите свою фамилию: ");
+string surname = Console.ReadLine()!.Trim();
+if (string.IsNullOrEmpty(surname)) {
+Console.WriteLine("Фамилия не введена. Завершение работы.");
+return;
+}
+Random rnd = new(surname.GetHashCode() + DateTime.Now.DayOfYear);
+var assigned = Enumerable.Range(1, 10)
+.OrderBy(_ => rnd.Next())
+.Take(2)
+.OrderBy(x => x)
+.ToList();
+Console.WriteLine($"Задачи: №{assigned[0]} и №{assigned[1]}");
+
+
+
+
+
+Console.Write("Введите температуру: ");
+if (double.TryParse(Console.ReadLine(), out double temp))
+{
+    string recommendation = temp switch
+    {
+        < 0 => "Мороз",
+        >= 0 and < 10 => "Прохладно",
+        >= 10 and < 20 => "Комфортно",
+        >= 20 and < 30 => "Тепло",
+        _ => "Жарко"
+    };
+
+    Console.WriteLine(recommendation);
+}
+else
+{
+    Console.WriteLine("Некорректный ввод.");
+}*/
+
+
+
+
+Console.Write("Введите тип транспорта (автобус, метро, такси): ");
+string transport = Console.ReadLine()?.Trim().ToLower();
+
+string type = transport switch
+{
+    "автобус" => "Наземный транспорт",
+    "метро"   => "Подземный транспорт",
+    "такси"   => "Индивидуальный транспорт",
+    _         => "Неизвестный транспорт"
+};
+
+    Console.WriteLine(type);
+
+
